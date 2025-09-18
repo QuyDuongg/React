@@ -5,6 +5,7 @@ import _, { set } from "lodash";
 import "./DetailQuiz.scss";
 import Question from "./Question";
 import ModalResult from "./ModalResult";
+import RightContent from "./Content/RightContent";
 
 const DetailQuiz = () => {
     const params = useParams();
@@ -132,9 +133,6 @@ const DetailQuiz = () => {
                     Quiz: {quizId} : {location?.state?.quizTitle}
                 </div>
                 <hr></hr>
-                <div className="q-body">
-                    <img src="" alt="img" className="q-image"></img>
-                </div>
                 <div className="q-content">
                     <Question
                         index={index}
@@ -171,7 +169,11 @@ const DetailQuiz = () => {
                     </button>
                 </div>
             </div>
-            <div className="right-content">count down</div>
+            <div className="right-content">
+                <RightContent dataQuiz={dataQuiz}
+                    handleFinishQuiz = {handleFinishQuiz}
+                ></RightContent>
+            </div>
             <ModalResult
                 show={isShowModalResult}
                 setShow={setIsShowModalResult}
