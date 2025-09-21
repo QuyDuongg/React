@@ -74,6 +74,14 @@
                 &.selected {
                     background-color: #d3d3d3;
                 }
+                &.active {
+                    color: red;
+                }
+                &.selected.active {
+                    background-color: #d3d3d3;
+                    color: red;
+                    // border-color: #d3d3d3;
+                }
                 &.clicked {
                     color: red;
                 }
