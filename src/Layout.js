@@ -13,7 +13,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ManageQuiz from "./components/Admin/Content/Quiz/ManageQuiz.js";
 import Questions from "./components/Admin/Content/Question/Questions.js";
-
+import PrivateRoute from "./routes/privateRoute";
 const NotFound = () => {
     return (
         <div className="container mt-3 alert alert-danger">
@@ -28,15 +28,28 @@ const Layout = () => {
             <Routes>
                 <Route path="/" element={<App />}>
                     <Route index element={<Home />} />
-                    <Route path="/users" element={<ListQuiz />} />
+                    <Route
+                        path="/users"
+                        element={
+                            <PrivateRoute>
+                                <ListQuiz />
+                            </PrivateRoute>
+                        }
+                    />
                 </Route>
                 <Route path="/quiz/:id" element={<DetailQuiz />} />
-                <Route path="/admins" element={<Admin />}>
+                <Route
+                    path="/admins"
+                    element={
+                        <PrivateRoute>
+                            <Admin />
+                        </PrivateRoute>
+                    }
+                >
                     <Route index element={<DashBoard />} />
                     <Route path="manage-users" element={<ManageUser />} />
                     <Route path="manage-quizzes" element={<ManageQuiz />} />
                     <Route path="manage-questions" element={<Questions />} />
-                    
                 </Route>
                 <Route path="/login" element={<Login></Login>} />
                 <Route path="/register" element={<Register></Register>} />
