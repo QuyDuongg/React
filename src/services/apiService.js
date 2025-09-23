@@ -43,6 +43,9 @@ const postLogin = async (userEmail, userPassword) => {
     // return await axios.post("/api/v1/login", { userEmail, userPassword });
     // };
 };
+const postLogout = async (email,refresh_token) => {
+    return await axios.post("/api/v1/logout",{email,refresh_token});
+};
 
 const postRegister = async (userEmail, userName, userPassword) => {
     return await axios.post("/api/v1/register", {
@@ -140,5 +143,5 @@ export {
     postCreateNewAnswerForQuestion,
     postCreateNewQuestionForQuiz,
     postAssignQuiz,
-    getQuizWithQA, postUpsertQA,
+    getQuizWithQA, postUpsertQA,postLogout,
 };
