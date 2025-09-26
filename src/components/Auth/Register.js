@@ -7,6 +7,7 @@ import { postRegister } from "../../services/apiService";
 import { Icon } from "react-icons-kit";
 import { eye } from "react-icons-kit/feather/eye";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
+import Language from "../Header/Language";
 
 const Register = () => {
     const [email, setEmail] = useState("");
@@ -65,6 +66,7 @@ const Register = () => {
                 <div>
                     <button onClick={() => navigate("/login")}>Login</button>
                 </div>
+                <Language></Language>
             </div>
             <div className="title col-4 mx-auto">Hoidan IT</div>
             <div className="welcome col-4 mx-auto">Start your journey?</div>

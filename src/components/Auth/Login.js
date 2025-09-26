@@ -10,6 +10,7 @@ import { Icon } from "react-icons-kit";
 import { eye } from "react-icons-kit/feather/eye";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { ImSpinner10 } from "react-icons/im";
+import Language from "../Header/Language";
 
 const Login = (props) => {
     const [email, setEmail] = useState("");
@@ -83,6 +84,7 @@ const Login = (props) => {
                         Sign up{" "}
                     </button>
                 </div>
+                <Language></Language>
             </div>
             <div className="title col-4 mx-auto">Hoidan IT</div>
             <div className="welcome col-4 mx-auto">hello, who's this?</div>

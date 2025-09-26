@@ -8,6 +8,9 @@ import { doLogout } from "../../redux/action/userAction";
 import { useDispatch } from "react-redux";
 import { postLogout } from "../../services/apiService";
 import { toast } from "react-toastify";
+import i18n from "../../utils/i18n";
+import Language from "./Language";
+
 const Header = () => {
     const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
     const account = useSelector((state) => state.user.account);
@@ -76,6 +79,7 @@ const Header = () => {
                             </NavDropdown>
                         )}
                     </Nav>
+                    <Language></Language>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
