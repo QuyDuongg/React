@@ -21,13 +21,15 @@
     },
     "auth": {
         "login": {
-            "title": "Hoidan IT",
+            "title": "Quizizz",
             "welcome": "hello, who's this?",
             "noAccount": "Don't have an account yet?",
             "email": "Email",
             "password": "Password",
             "loginButton": "Login",
-            "signupButton": "Sign up"
+            "signupButton": "Sign up",
+            "forgotPassword": "Forgot password?",
+            "goHome": "« Go to homepage"
         },
         "register": {
             "title": "Register",

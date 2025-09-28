@@ -5,7 +5,8 @@ import { toast } from "react-toastify";
 import { postLogin } from "../../services/apiService";
 import { useDispatch } from "react-redux";
 import { doLogin } from "../../redux/action/userAction";
-
+import { startTransition } from "react";
+import { useTranslation } from "react-i18next";
 import { Icon } from "react-icons-kit";
 import { eye } from "react-icons-kit/feather/eye";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
@@ -21,6 +22,7 @@ const Login = (props) => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const { t } = useTranslation();
 
     const validateEmail = (email) => {
         return String(email)
@@ -34,11 +36,11 @@ const Login = (props) => {
         // validate
         const emailValid = validateEmail(email);
         if (!emailValid) {
-            toast.error("Invalid email");
+            toast.error(t("auth.validation.invalidEmail"));
             return;
         }
         if (!password) {
-            toast.error("Invalid password");
+            toast.error(t("auth.validation.invalidPassword"));
             return;
         }
         setIsLoading(true);
@@ -48,7 +50,9 @@ const Login = (props) => {
             dispatch(doLogin(data));
             toast.success(data.EM);
             setIsLoading(false);
-            navigate("/");
+            startTransition(() => {
+                navigate("/");
+            });
         }
         if (data && +data.EC !== 0) {
             toast.error(data.EM);
@@ -76,21 +80,25 @@ const Login = (props) => {
             onKeyDown={(event) => handleEnter(event)}
         >
             <div className="header">
-                <span>Don't have an account yet? </span>
+                <span>{t("auth.login.noAccount")} </span>
 
                 <div>
                     <button onClick={() => navigate("/register")}>
                         {" "}
-                        Sign up{" "}
+                        {t("auth.login.signupButton")}{" "}
                     </button>
                 </div>
                 <Language></Language>
             </div>
-            <div className="title col-4 mx-auto">Hoidan IT</div>
-            <div className="welcome col-4 mx-auto">hello, who's this?</div>
+            <div className="title col-4 mx-auto">{t("auth.login.title")}</div>
+            <div className="welcome col-4 mx-auto">
+                {t("auth.login.welcome")}
+            </div>
             <div className="content-form col-4 mx-auto">
                 <div className="from-group ">
-                    <label className="form-label">Email</label>
+                    <label className="form-label">
+                        {t("auth.login.email")}
+                    </label>
                     <input
                         type="email"
                         className="form-control"
@@ -102,7 +110,9 @@ const Login = (props) => {
                     />
                 </div>
                 <div className="from-group ">
-                    <label className="form-label">Password</label>
+                    <label className="form-label">
+                        {t("auth.login.password")}
+                    </label>
                     <input
                         type={type}
                         className="form-control"
@@ -114,7 +124,10 @@ const Login = (props) => {
                     </span>
                 </div>
             </div>
-            <div className="forgot-password">Forgot password?</div>
+            <div className="forgot-password">
+                {" "}
+                {t("auth.login.forgotPassword")}
+            </div>
             <div className="btn-submit col-4 mx-auto">
                 <button
                     onClick={() => {
@@ -125,7 +138,7 @@ const Login = (props) => {
                     {isLoading === true && (
                         <ImSpinner10 className="loader-icon" />
                     )}
-                    <span>Log in</span>
+                    <span>{t("auth.login.loginButton")}</span>
                 </button>
             </div>
             <div className="text-center">
@@ -135,7 +148,7 @@ const Login = (props) => {
                         navigate("/");
                     }}
                 >
-                    &#60;&#60; Go to homepage
+                    {t("auth.login.goHome")}
                 </span>
             </div>
         </div>

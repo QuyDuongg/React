@@ -3,10 +3,13 @@ import { useState } from "react";
 import { getQuizByUser } from "../../services/apiService";
 import "./ListQuiz.scss";
 import { useNavigate } from "react-router-dom";
+import { startTransition } from "react";
+import { useTranslation } from "react-i18next";
 
 const ListQuiz = (props) => {
     const navigate = useNavigate();
     const [arrQuiz, setArrQuiz] = useState([]);
+    const { t } = useTranslation();
     useEffect(() => {
         getQuizData();
     }, []);
@@ -33,15 +36,21 @@ const ListQuiz = (props) => {
                             alt="img"
                         ></img>
                         <div className="card-body">
-                            <h5 className="card-title">Quiz {index + 1}</h5>
+                            <h5 className="card-title">{t("quiz.quiz")} {index + 1}</h5>
                             <p className="card-text">{quiz.description}</p>
                             <button
                                 className="btn btn-primary"
                                 onClick={() => {
-                                    navigate(`/quiz/${quiz.id}`, { state: { quizTitle: quiz.description } });
+                                    startTransition(() => {
+                                        navigate(`/quiz/${quiz.id}`, {
+                                            state: {
+                                                quizTitle: quiz.description,
+                                            },
+                                        });
+                                    });
                                 }}
-                            > 
-                                Start now
+                            >
+                                {t("quiz.startNow")}
                             </button>
                         </div>
                     </div>

@@ -1,40 +1,45 @@
 import videoHomepage from "../../assets/videoHomepage.mp4";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { startTransition } from "react";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
     const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
     const account = useSelector((state) => state.user.account);
     const navigate = useNavigate();
+    const { t } = useTranslation();
     return (
         <div className="homepage-container">
             <video controls autoPlay loop muted>
                 <source src={videoHomepage} type="video/mp4" />
             </video>
             <div className="homepage-content">
-                <div className="title-1">There's a better way to ask</div>
+                <div className="title-1">{t("home.title1")}</div>
                 <div className="title-2">
-                    You don't want to make a boring from. And your audience
-                    won't answer one. Create a typeform instead - it's free and
-                    easy.
+                    {t("home.title2")}
                 </div>
 
                 <div className="title-3">
                     {isAuthenticated === true ? (
                         <button
                             onClick={() => {
-                                navigate("/users");
+                                startTransition(() => {
+                                    navigate("/users");
+                                });
                             }}
                         >
-                            Doing Quiz now
+                            {t("home.startQuiz")}
                         </button>
                     ) : (
                         <button
                             onClick={() => {
-                                navigate("/login");
+                                startTransition(() => {
+                                    navigate("/login");
+                                });
                             }}
                         >
-                            Get's started. It's free
+                            {t("home.getStarted")}
                         </button>
                     )}
                 </div>

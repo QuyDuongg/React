@@ -8,7 +8,7 @@ import { Icon } from "react-icons-kit";
 import { eye } from "react-icons-kit/feather/eye";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import Language from "../Header/Language";
-
+import { useTranslation } from "react-i18next";
 const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -16,6 +16,7 @@ const Register = () => {
     const [type, setType] = useState("password");
     const [icon, setIcon] = useState(eyeOff);
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     const validateEmail = (email) => {
         return String(email)
@@ -61,18 +62,24 @@ const Register = () => {
     return (
         <div className="signup-container">
             <div className="header">
-                <span>Already have an account </span>
+                <span>{t("auth.register.haveAccount")}</span>
 
                 <div>
-                    <button onClick={() => navigate("/login")}>Login</button>
+                    <button onClick={() => navigate("/login")}>
+                        {t("auth.register.loginButton")}
+                    </button>
                 </div>
                 <Language></Language>
             </div>
             <div className="title col-4 mx-auto">Hoidan IT</div>
-            <div className="welcome col-4 mx-auto">Start your journey?</div>
+            <div className="welcome col-4 mx-auto">
+                {t("auth.register.welcome")}
+            </div>
             <div className="content-form col-4 mx-auto">
                 <div className="from-group ">
-                    <label className="form-label">Email</label>
+                    <label className="form-label">
+                        {t("auth.register.email")}
+                    </label>
                     <input
                         type="email"
                         className="form-control"
@@ -82,7 +89,9 @@ const Register = () => {
                     />
                 </div>
                 <div className="from-group ">
-                    <label className="form-label">Password</label>
+                    <label className="form-label">
+                        {t("auth.register.password")}
+                    </label>
                     <input
                         type={type}
                         className="form-control"
@@ -94,7 +103,9 @@ const Register = () => {
                     </span>
                 </div>
                 <div className="from-group ">
-                    <label className="form-label">Username</label>
+                    <label className="form-label">
+                        {t("auth.register.username")}
+                    </label>
                     <input
                         className="form-control"
                         value={username}
@@ -108,7 +119,7 @@ const Register = () => {
                         handleSignUp();
                     }}
                 >
-                    Create my free account
+                    {t("auth.register.registerButton")}
                 </button>
             </div>
             <div className="text-center">
@@ -118,7 +129,7 @@ const Register = () => {
                         navigate("/");
                     }}
                 >
-                    &#60;&#60; Go to homepage
+                    {t("auth.login.goHome")}
                 </span>
             </div>
         </div>

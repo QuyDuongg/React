@@ -8,7 +8,8 @@ import { doLogout } from "../../redux/action/userAction";
 import { useDispatch } from "react-redux";
 import { postLogout } from "../../services/apiService";
 import { toast } from "react-toastify";
-import i18n from "../../utils/i18n";
+import { useTranslation } from "react-i18next";
+import { startTransition } from "react";
 import Language from "./Language";
 
 const Header = () => {
@@ -17,7 +18,9 @@ const Header = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleLogin = () => {
-        navigate("/login");
+        startTransition(() => {
+            navigate("/login");
+        });
     };
     const handleLogout = async () => {
         console.log("data", account.email, account.refresh_token);
@@ -25,11 +28,15 @@ const Header = () => {
         if (data && data.EC === 0) {
             toast.success(data.EM);
             dispatch(doLogout());
-            navigate("/login");
+            startTransition(() => {
+                navigate("/login");
+            });
         } else {
             toast.error(data.EM);
         }
     };
+    const { t, i18n } = useTranslation();
+
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
@@ -41,13 +48,13 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <NavLink to="/" className="nav-link">
-                            Home
+                            {t("header.home")}
                         </NavLink>
                         <NavLink to="/users" className="nav-link">
-                            User
+                            {t("header.users")}
                         </NavLink>
                         <NavLink to="/admins" className="nav-link">
-                            Admin
+                            {t("header.admin")}
                         </NavLink>
                     </Nav>
                     <Nav>
@@ -59,22 +66,26 @@ const Header = () => {
                                         handleLogin();
                                     }}
                                 >
-                                    Log in
+                                    {t("header.login")}
                                 </button>
-                                <button className="btn-signup">Sige up</button>
+                                <button className="btn-signup me-3">
+                                    {t("header.signup")}
+                                </button>
                             </>
                         ) : (
                             <NavDropdown
-                                title="Settings"
+                                title={t("header.settings")}
                                 id="basic-nav-dropdown"
                             >
-                                <NavDropdown.Item>Profile</NavDropdown.Item>
+                                <NavDropdown.Item>
+                                    {t("header.profile")}
+                                </NavDropdown.Item>
                                 <NavDropdown.Item
                                     onClick={() => {
                                         handleLogout();
                                     }}
                                 >
-                                    Log out
+                                    {t("header.logout")}
                                 </NavDropdown.Item>
                             </NavDropdown>
                         )}

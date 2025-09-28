@@ -27,7 +27,9 @@
             "email": "メールアドレス",
             "password": "パスワード",
             "loginButton": "ログイン",
-            "signupButton": "サインアップ"
+            "signupButton": "サインアップ",
+            "forgotPassword": "パスワードをお忘れですか？",
+            "goHome": "« ホームページへ"
         },
         "register": {
             "title": "登録",

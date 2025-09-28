@@ -27,7 +27,9 @@
             "email": "Email",
             "password": "Mật khẩu",
             "loginButton": "Đăng nhập",
-            "signupButton": "Đăng ký"
+            "signupButton": "Đăng ký",
+            "forgotPassword": "Quên mật khẩu?",
+            "goHome": "« Về trang chủ"
         },
         "register": {
             "title": "Đăng ký",

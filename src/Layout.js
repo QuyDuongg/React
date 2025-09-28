@@ -14,10 +14,12 @@ import "react-toastify/dist/ReactToastify.css";
 import ManageQuiz from "./components/Admin/Content/Quiz/ManageQuiz.js";
 import Questions from "./components/Admin/Content/Question/Questions.js";
 import PrivateRoute from "./routes/privateRoute";
+import { useTranslation } from "react-i18next";
 const NotFound = () => {
+    const { t } = useTranslation();
     return (
         <div className="container mt-3 alert alert-danger">
-            404. Not found data with your current URL
+            {t("errors.notFound")}
         </div>
     );
 };

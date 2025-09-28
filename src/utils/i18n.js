@@ -1,121 +1,34 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+import enTranslations from "../locales/en/global.json";
+import viTranslations from "../locales/vi/global.json";
+import jaTranslations from "../locales/ja/global.json";
 
-// Simple translations object
-const resources = {
-    en: {
-        translation: {
-            "header.home": "Home",
-            "header.users": "Users",
-            "header.admin": "Admin",
-            "header.login": "Log in",
-            "header.signup": "Sign up",
-            "header.profile": "Profile",
-            "header.logout": "Log out",
-            "header.settings": "Settings",
-            "header.language": "Language",
-            "header.vietnam": "Vietnam",
-            "header.english": "English",
-            "header.japanese": "Japanese",
-            "home.title1": "There's a better way to ask",
-            "home.title2":
-                "You don't want to make a boring form. And your audience won't answer one. Create a typeform instead - it's free and easy.",
-            "home.startQuiz": "Doing Quiz now",
-            "home.getStarted": "Get's started. It's free",
-            "auth.login.title": "Hoidan IT",
-            "auth.login.welcome": "hello, who's this?",
-            "auth.login.noAccount": "Don't have an account yet?",
-            "auth.login.email": "Email",
-            "auth.login.password": "Password",
-            "auth.login.loginButton": "Login",
-            "auth.login.signupButton": "Sign up",
-            "auth.validation.invalidEmail": "Invalid email",
-            "auth.validation.invalidPassword": "Invalid password",
-            "quiz.quiz": "Quiz",
-            "quiz.startNow": "Start now",
-            "errors.notFound": "404. Not found data with your current URL",
+i18n.use(LanguageDetector)
+    .use(initReactI18next)
+    .init({
+        fallbackLng: "en",
+        debug: false,
+        lng: "en",
+        interpolation: {
+            escapeValue: false,
         },
-    },
-    vi: {
-        translation: {
-            "header.home": "Trang chủ",
-            "header.users": "Người dùng",
-            "header.admin": "Quản trị",
-            "header.login": "Đăng nhập",
-            "header.signup": "Đăng ký",
-            "header.profile": "Hồ sơ",
-            "header.logout": "Đăng xuất",
-            "header.settings": "Cài đặt",
-            "header.language": "Ngôn ngữ",
-            "header.vietnam": "Việt Nam",
-            "header.english": "Tiếng Anh",
-            "header.japanese": "Tiếng Nhật",
-            "home.title1": "Có một cách tốt hơn để hỏi",
-            "home.title2":
-                "Bạn không muốn tạo một biểu mẫu nhàm chán. Và khán giả của bạn sẽ không trả lời. Thay vào đó, hãy tạo một typeform - nó miễn phí và dễ dàng.",
-            "home.startQuiz": "Làm bài kiểm tra ngay",
-            "home.getStarted": "Bắt đầu. Hoàn toàn miễn phí",
-            "auth.login.title": "Hoidan IT",
-            "auth.login.welcome": "xin chào, bạn là ai?",
-            "auth.login.noAccount": "Chưa có tài khoản?",
-            "auth.login.email": "Email",
-            "auth.login.password": "Mật khẩu",
-            "auth.login.loginButton": "Đăng nhập",
-            "auth.login.signupButton": "Đăng ký",
-            "auth.validation.invalidEmail": "Email không hợp lệ",
-            "auth.validation.invalidPassword": "Mật khẩu không hợp lệ",
-            "quiz.quiz": "Bài kiểm tra",
-            "quiz.startNow": "Bắt đầu ngay",
-            "errors.notFound":
-                "404. Không tìm thấy dữ liệu với URL hiện tại của bạn",
+        resources: {
+            en: {
+                translation: enTranslations,
+            },
+            vi: {
+                translation: viTranslations,
+            },
+            ja: {
+                translation: jaTranslations,
+            },
         },
-    },
-    ja: {
-        translation: {
-            "header.home": "ホーム",
-            "header.users": "ユーザー",
-            "header.admin": "管理者",
-            "header.login": "ログイン",
-            "header.signup": "サインアップ",
-            "header.profile": "プロフィール",
-            "header.logout": "ログアウト",
-            "header.settings": "設定",
-            "header.language": "言語",
-            "header.vietnam": "ベトナム語",
-            "header.english": "英語",
-            "header.japanese": "日本語",
-            "home.title1": "質問するより良い方法があります",
-            "home.title2":
-                "退屈なフォームを作りたくないでしょう。そして、あなたの聴衆も答えたくないでしょう。代わりにtypeformを作成してください - 無料で簡単です。",
-            "home.startQuiz": "今すぐクイズを開始",
-            "home.getStarted": "始めましょう。無料です",
-            "auth.login.title": "Hoidan IT",
-            "auth.login.welcome": "こんにちは、どなたですか？",
-            "auth.login.noAccount": "まだアカウントをお持ちでないですか？",
-            "auth.login.email": "メールアドレス",
-            "auth.login.password": "パスワード",
-            "auth.login.loginButton": "ログイン",
-            "auth.login.signupButton": "サインアップ",
-            "auth.validation.invalidEmail": "無効なメールアドレス",
-            "auth.validation.invalidPassword": "無効なパスワード",
-            "quiz.quiz": "クイズ",
-            "quiz.startNow": "今すぐ開始",
-            "errors.notFound": "404. 現在のURLでデータが見つかりません",
-        },
-    },
-};
-
-i18n.use(initReactI18next).init({
-    fallbackLng: "en",
-    debug: false,
-    lng: "en",
-    interpolation: {
-        escapeValue: false,
-    },
-    resources,
-    react: {
-        useSuspense: false,
-    },
-});
+        // detection: {
+        //     order: ['localStorage', 'navigator', 'htmlTag'],
+        //     caches: ['localStorage'],
+        // },
+    });
 
 export default i18n;
