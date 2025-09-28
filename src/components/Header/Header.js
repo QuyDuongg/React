@@ -45,7 +45,7 @@ const Header = () => {
                     Hoidan IT
                 </NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Navbar.Collapse id="basic-navbar-nav ">
                     <Nav className="me-auto">
                         <NavLink to="/" className="nav-link">
                             {t("header.home")}
