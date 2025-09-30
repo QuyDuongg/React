@@ -43,6 +43,7 @@ const DetailQuiz = () => {
                         item.answers.issSelected = false;
                         answers.push(item.answers);
                     });
+                    answers = _.orderBy(answers,['id'],['asc'])
                     return {
                         questionId: key,
                         answers,

@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import App from "./App";
-import User from "./components/User/User";
 import ListQuiz from "./components/User/ListQuiz";
 import Admin from "./components/Admin/Admin";
 import Home from "./components/Home/Homepage";

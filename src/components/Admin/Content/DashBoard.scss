@@ -1,0 +1,32 @@
+.dashboard-container {
+    padding: 20px;
+    height: 100%;
+    .header {
+        margin-bottom: 20px;
+    }
+    .content {
+        display: flex;
+
+        .c-left {
+            width: 50%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px 20px;
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 170px;
+                width: 45%;
+                border: 1px solid;
+                border-color: #8f8f8f;
+                border-radius: 15px;
+            }
+        }
+        .c-right {
+            border-style: solid;
+            border-color: coral;
+            width: 50%;
+        }
+    }
+}
