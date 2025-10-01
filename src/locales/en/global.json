@@ -88,7 +88,8 @@
         "deleteButton": "Delete Quiz",
         "assignQuiz": "Assign Quiz",
         "selectUser": "Select User:",
-        "assignButton": "Assign Quiz"
+        "assignButton": "Assign Quiz",
+        "features": "Features"
     },
     "user": {
         "profile": "Profile",

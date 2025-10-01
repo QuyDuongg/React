@@ -88,7 +88,8 @@
         "deleteButton": "クイズを削除",
         "assignQuiz": "クイズを割り当て",
         "selectUser": "ユーザーを選択:",
-        "assignButton": "クイズを割り当て"
+        "assignButton": "クイズを割り当て",
+        "features": "機能"
     },
     "user": {
         "profile": "プロフィール",
