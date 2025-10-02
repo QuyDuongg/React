@@ -2,7 +2,11 @@
     padding: 20px;
     height: 100%;
     .header {
-        margin-bottom: 20px;
+        margin-top: 15px;
+        margin-bottom: 30px;
+        font-weight: 300;
+        font-size: 30px;
+        margin-left: 20px;
     }
     .content {
         display: flex;
@@ -21,11 +25,16 @@
                 border: 1px solid;
                 border-color: #8f8f8f;
                 border-radius: 15px;
+                flex-direction: column;
+                font-size: 20px;
+                color: #808080;
+                span:last-child {
+                    color: #515151;
+                    font-size: 30px;
+                }
             }
         }
         .c-right {
-            border-style: solid;
-            border-color: coral;
             width: 50%;
         }
     }

@@ -43,8 +43,8 @@ const postLogin = async (userEmail, userPassword) => {
     // return await axios.post("/api/v1/login", { userEmail, userPassword });
     // };
 };
-const postLogout = async (email,refresh_token) => {
-    return await axios.post("/api/v1/logout",{email,refresh_token});
+const postLogout = async (email, refresh_token) => {
+    return await axios.post("/api/v1/logout", { email, refresh_token });
 };
 
 const postRegister = async (userEmail, userName, userPassword) => {
@@ -122,8 +122,11 @@ const getQuizWithQA = (quizId) => {
 };
 
 const postUpsertQA = (data) => {
-    return axios.post(`api/v1/quiz-upsert-qa`,{...data})
-}
+    return axios.post(`api/v1/quiz-upsert-qa`, { ...data });
+};
+const getDashboardData = () => {
+    return axios.get("/api/v1/overview");
+};
 
 export {
     postCreateNewUser,
@@ -143,5 +146,8 @@ export {
     postCreateNewAnswerForQuestion,
     postCreateNewQuestionForQuiz,
     postAssignQuiz,
-    getQuizWithQA, postUpsertQA,postLogout,
+    getQuizWithQA,
+    postUpsertQA,
+    postLogout,
+    getDashboardData,
 };
