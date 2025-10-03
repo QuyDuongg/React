@@ -1,5 +1,16 @@
+.breadcrumb {
+    margin-top: 20px;
+    margin-left: 27px;
+    .breadcrumb-item {
+        font-size: 18px;
+    }
+    a {
+        text-decoration: none !important;
+    }
+}
 .detail-quiz-container {
     display: flex;
+    margin-top: -30px;
     gap: 20px;
     padding: 50px;
     .left-content {
@@ -34,14 +45,14 @@
             }
         }
         .footer {
-            margin-top: 20px;
+            margin-top: 60px;
             display: flex;
             gap: 15px;
             justify-content: center;
         }
     }
     .right-content {
-        width: 30%;
+        width: 25%;
         border-radius: 5px;
         padding: 20px;
         border: 1px solid #ccc;
