@@ -89,7 +89,18 @@
         "assignQuiz": "Giao bài kiểm tra",
         "selectUser": "Chọn người dùng:",
         "assignButton": "Giao bài kiểm tra",
-        "features": "Tính năng"
+        "features": "Tính năng",
+        "addNewUsers": "Thêm người dùng mới",
+        "no": "STT",
+        "email": "Email",
+        "username": "Tên người dùng",
+        "role": "Vai trò",
+        "action": "Hành động",
+        "view": "Xem",
+        "update": "Cập nhật",
+        "delete": "Xóa",
+        "next": "Tiếp theo >",
+        "previous": "< Trước"
     },
     "user": {
         "profile": "Hồ sơ",

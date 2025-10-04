@@ -89,7 +89,18 @@
         "assignQuiz": "クイズを割り当て",
         "selectUser": "ユーザーを選択:",
         "assignButton": "クイズを割り当て",
-        "features": "機能"
+        "features": "機能",
+        "addNewUsers": "新しいユーザーを追加",
+        "no": "番号",
+        "email": "メールアドレス",
+        "username": "ユーザー名",
+        "role": "役割",
+        "action": "操作",
+        "view": "表示",
+        "update": "更新",
+        "delete": "削除",
+        "next": "次へ >",
+        "previous": "< 前へ"
     },
     "user": {
         "profile": "プロフィール",

@@ -1,9 +1,11 @@
 import ReactPaginate from "react-paginate";
 import { useState, useEffect } from "react";
+import {useTranslation} from "react-i18next";
+import ModalViewuser from "./ModalViewUser";
 
 const TableUserPaginate = (props) => {
     let { listUser, pageCount } = props;
-
+    const { t } = useTranslation();
     // Invoke when user click to request another page.
     const handlePageClick = (event) => {
         props.fetchListUserWithPaginate(event.selected + 1);
@@ -15,11 +17,11 @@ const TableUserPaginate = (props) => {
             <table className="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">{t("admin.no")}</th>
+                        <th scope="col">{t("admin.email")}</th>
+                        <th scope="col">{t("admin.username")}</th>
+                        <th scope="col">{t("admin.role")}</th>
+                        <th scope="col">{t("admin.action")}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,7 +36,7 @@ const TableUserPaginate = (props) => {
                                     <td>{item.role}</td>
                                     <td>
                                         <button className="btn btn-secondary">
-                                            View
+                                            {t("admin.view")}
                                         </button>
                                         <button
                                             className="btn btn-warning mx-3"
@@ -43,8 +45,8 @@ const TableUserPaginate = (props) => {
                                                     item
                                                 );
                                             }}
-                                        >
-                                            Update
+                                        > 
+                                            {t("admin.update")}
                                         </button>
                                         <button
                                             className="btn btn-danger"
@@ -54,7 +56,7 @@ const TableUserPaginate = (props) => {
                                                 );
                                             }}
                                         >
-                                            Delete
+                                            {t("admin.delete")}
                                         </button>
                                     </td>
                                 </tr>
@@ -68,12 +70,12 @@ const TableUserPaginate = (props) => {
                 </tbody>
             </table>
             <ReactPaginate
-                nextLabel="next >"
+                nextLabel={t("admin.next")}
                 onPageChange={handlePageClick}
                 pageRangeDisplayed={3}
                 marginPagesDisplayed={2}
                 pageCount={pageCount}
-                previousLabel="< previous"
+                previousLabel={t("admin.previous")}
                 pageClassName="page-item"
                 pageLinkClassName="page-link"
                 previousClassName="page-item"

@@ -89,7 +89,18 @@
         "assignQuiz": "Assign Quiz",
         "selectUser": "Select User:",
         "assignButton": "Assign Quiz",
-        "features": "Features"
+        "addNewUsers": "Add New Users",
+        "features": "Features",
+        "no": "No",
+        "email": "Email",
+        "username": "Username",
+        "role": "Role",
+        "action": "Action",
+        "view": "View",
+        "update": "Update",
+        "delete": "Delete",
+        "next": "next >",
+        "previous": "< previous"
     },
     "user": {
         "profile": "Profile",

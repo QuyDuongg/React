@@ -8,12 +8,14 @@ import TableUserPaginate from "./TableUserPaginate";
 import { useEffect, useState } from "react";
 import { getAllUsers, getUserWithPaginate } from "../../../services/apiService";
 import { set } from "lodash";
+import { useTranslation } from "react-i18next";
 
 const ManageUser = () => {
     const LIMIT_USER = 3;
     const [listUser, setListUser] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
+    const { t } = useTranslation();
 
     const fetchListUserWithPaginate = async (page) => {
         let res = await getUserWithPaginate(page, LIMIT_USER);
@@ -64,7 +66,7 @@ const ManageUser = () => {
     return (
         <div className="manage-user-container">
             <div className="title">
-                <h1>ManageUser</h1>
+                <h1>{t("admin.manageUsers")}</h1>
             </div>
             <div className="users-content">
                 <div className="btn-add-new">
@@ -75,7 +77,7 @@ const ManageUser = () => {
                             handleShowCreateUser();
                         }}
                     >
-                        <FcPlus /> Add new users
+                        <FcPlus /> {t("admin.addNewUsers")}
                     </button>
                 </div>
                 <div className="table-users-container">
