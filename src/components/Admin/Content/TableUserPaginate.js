@@ -1,6 +1,6 @@
 import ReactPaginate from "react-paginate";
 import { useState, useEffect } from "react";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 import ModalViewuser from "./ModalViewUser";
 
 const TableUserPaginate = (props) => {
@@ -10,7 +10,6 @@ const TableUserPaginate = (props) => {
     const handlePageClick = (event) => {
         props.fetchListUserWithPaginate(event.selected + 1);
         props.setCurrentPage(event.selected + 1);
-        
     };
     return (
         <div>
@@ -35,7 +34,12 @@ const TableUserPaginate = (props) => {
                                     <td>{item.username}</td>
                                     <td>{item.role}</td>
                                     <td>
-                                        <button className="btn btn-secondary">
+                                        <button
+                                            className="btn btn-secondary"
+                                            onClick={() => {
+                                                props.handleClickBtnView(item);
+                                            }}
+                                        >
                                             {t("admin.view")}
                                         </button>
                                         <button
@@ -45,7 +49,7 @@ const TableUserPaginate = (props) => {
                                                     item
                                                 );
                                             }}
-                                        > 
+                                        >
                                             {t("admin.update")}
                                         </button>
                                         <button

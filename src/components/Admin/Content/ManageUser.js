@@ -1,6 +1,7 @@
 import ModalCreateUser from "./ModalCreateUser";
 import ModalUpdateUser from "./ModalUpdateUser";
 import ModalDelete from "./ModalDeleteUser";
+import ModalViewUser from "./ModalViewUser";
 import "./ManageUser.scss";
 import { FcPlus } from "react-icons/fc";
 import TableUser from "./TableUser";
@@ -50,6 +51,15 @@ const ManageUser = () => {
         setDataDelete(user);
     };
 
+    //ModalView
+    const [showModalViewUser, setShowModalViewUser] = useState(false);
+    const [dataView, setDataView] = useState({});
+
+    const handleClickBtnView = (user) => {
+        setShowModalViewUser(true);
+        setDataView(user);
+    };
+
     // fetch list all users
     // componentdidmount
     // useEffect(() => {
@@ -90,6 +100,7 @@ const ManageUser = () => {
                         listUser={listUser}
                         // LIMIT_USER={LIMIT_USER}
                         pageCount={pageCount}
+                        handleClickBtnView={handleClickBtnView}
                         handleClickBtnUpdate={handleClickBtnUpdate}
                         handleClickBtnDelete={handleClickBtnDelete}
                         fetchListUserWithPaginate={fetchListUserWithPaginate}
@@ -124,6 +135,11 @@ const ManageUser = () => {
                     currentPage={currentPage}
                     setCurrentPage={setCurrentPage}
                 ></ModalDelete>
+                <ModalViewUser
+                    show={showModalViewUser}
+                    setShow={setShowModalViewUser}
+                    dataView={dataView}
+                ></ModalViewUser>
             </div>
         </div>
     );
