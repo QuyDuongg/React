@@ -8,11 +8,13 @@ import ModalResult from "./ModalResult";
 import RightContent from "./Content/RightContent";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const DetailQuiz = () => {
     const params = useParams();
     const quizId = params.id;
     const location = useLocation();
+    const { t } = useTranslation();
 
     const [dataQuiz, setDataQuiz] = useState([]);
     const [index, setIndex] = useState(0);
@@ -123,7 +125,7 @@ const DetailQuiz = () => {
                 });
                 setIsShowModalResult(true);
             } else {
-                alert("something wrong with api");
+                alert(t("quiz.somethingWrong"));
             }
             console.log("dataModalResult", dataModalResult);
         }
@@ -133,20 +135,23 @@ const DetailQuiz = () => {
         <>
             <Breadcrumb className="breadcrumb">
                 <NavLink to="/" className="breadcrumb-item">
-                    Home
+                    {t("quiz.home")}
                 </NavLink>
 
                 <NavLink to="/users" className="breadcrumb-item">
-                    Users
+                    {t("quiz.users")}
                 </NavLink>
 
-                <Breadcrumb.Item active>Quiz {quizId}</Breadcrumb.Item>
+                <Breadcrumb.Item active>
+                    {t("quiz.quiz")} {quizId}
+                </Breadcrumb.Item>
             </Breadcrumb>
 
             <div className="detail-quiz-container">
                 <div className="left-content">
                     <div className="title">
-                        Quiz: {quizId} : {location?.state?.quizTitle}
+                        {t("quiz.quiz")}: {quizId} :{" "}
+                        {location?.state?.quizTitle}
                     </div>
                     <hr></hr>
                     <div className="q-content">
@@ -167,7 +172,7 @@ const DetailQuiz = () => {
                                 handlePrev();
                             }}
                         >
-                            Prev
+                            {t("quiz.prev")}
                         </button>
                         <button
                             className="btn btn-primary"
@@ -175,13 +180,13 @@ const DetailQuiz = () => {
                                 handleNext();
                             }}
                         >
-                            Next
+                            {t("quiz.next")}
                         </button>
                         <button
                             className="btn btn-warning"
                             onClick={() => handleFinishQuiz()}
                         >
-                            Finish
+                            {t("quiz.finish")}
                         </button>
                     </div>
                 </div>

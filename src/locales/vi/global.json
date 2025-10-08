@@ -71,7 +71,13 @@
         "score": "Điểm số",
         "correctAnswers": "Câu trả lời đúng",
         "totalQuestions": "Tổng số câu hỏi",
-        "timeSpent": "Thời gian làm bài"
+        "timeSpent": "Thời gian làm bài",
+        "prev": "Trước",
+        "next": "Tiếp theo",
+        "finish": "Hoàn thành",
+        "users": "Người dùng",
+        "home": "Trang chủ",
+        "somethingWrong": "Có lỗi xảy ra với API"
     },
     "admin": {
         "dashboard": "Bảng điều khiển",
@@ -100,7 +106,27 @@
         "update": "Cập nhật",
         "delete": "Xóa",
         "next": "Tiếp theo >",
-        "previous": "< Trước"
+        "previous": "< Trước",
+        "manageQuiz": "Quản lý bài kiểm tra",
+        "addNewQuiz": "Thêm bài kiểm tra mới",
+        "name": "Tên",
+        "description": "Mô tả",
+        "uploadImage": "Tải lên hình ảnh",
+        "save": "Lưu",
+        "updateQA": "Cập nhật câu hỏi/trả lời",
+        "assignToUsers": "Giao cho người dùng",
+        "selectQuiz": "Chọn bài kiểm tra:",
+        "addQuestions": "Thêm câu hỏi:",
+        "questionDescription": "Mô tả câu hỏi",
+        "answers": "Câu trả lời",
+        "submitQuestions": "Nộp câu hỏi",
+        "fileUploaded": "tệp đã được tải lên",
+        "noData": "Không có dữ liệu",
+        "pleaseChooseQuiz": "Vui lòng chọn một bài kiểm tra",
+        "notEmptyAnswer": "Không để trống câu trả lời",
+        "atQuestion": "ở câu hỏi",
+        "notEmptyDescription": "Không để trống mô tả cho câu hỏi",
+        "password": "Mật khẩu"
     },
     "user": {
         "profile": "Hồ sơ",
@@ -131,7 +157,8 @@
         "warning": "Cảnh báo",
         "info": "Thông tin",
         "required": "Bắt buộc",
-        "optional": "Tùy chọn"
+        "optional": "Tùy chọn",
+        "showAnswers": "Hiển thị câu trả lời"
     },
     "messages": {
         "loginSuccess": "Đăng nhập thành công",

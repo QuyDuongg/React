@@ -1,16 +1,19 @@
+import { useTranslation } from "react-i18next";
+
 const TableUser = (props) => {
     let { listUser } = props;
+    const { t } = useTranslation();
 
     return (
         <div>
             <table className="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Role</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">{t("admin.no")}</th>
+                        <th scope="col">{t("admin.email")}</th>
+                        <th scope="col">{t("admin.username")}</th>
+                        <th scope="col">{t("admin.role")}</th>
+                        <th scope="col">{t("admin.action")}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,7 +28,7 @@ const TableUser = (props) => {
                                     <td>{item.role}</td>
                                     <td>
                                         <button className="btn btn-secondary">
-                                            View
+                                            {t("admin.view")}
                                         </button>
                                         <button
                                             className="btn btn-warning mx-3"
@@ -35,7 +38,7 @@ const TableUser = (props) => {
                                                 );
                                             }}
                                         >
-                                            Update
+                                            {t("admin.update")}
                                         </button>
                                         <button
                                             className="btn btn-danger"
@@ -45,7 +48,7 @@ const TableUser = (props) => {
                                                 );
                                             }}
                                         >
-                                            Delete
+                                            {t("admin.delete")}
                                         </button>
                                     </td>
                                 </tr>
@@ -53,7 +56,7 @@ const TableUser = (props) => {
                         })}
                     {listUser && listUser.length === 0 && (
                         <tr>
-                            <td colSpan="4">No data</td>
+                            <td colSpan="4">{t("admin.noData")}</td>
                         </tr>
                     )}
                 </tbody>

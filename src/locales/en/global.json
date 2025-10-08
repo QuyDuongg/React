@@ -71,7 +71,13 @@
         "score": "Score",
         "correctAnswers": "Correct Answers",
         "totalQuestions": "Total Questions",
-        "timeSpent": "Time Spent"
+        "timeSpent": "Time Spent",
+        "prev": "Prev",
+        "next": "Next",
+        "finish": "Finish",
+        "users": "Users",
+        "home": "Home",
+        "somethingWrong": "Something wrong with api"
     },
     "admin": {
         "dashboard": "Dashboard",
@@ -100,7 +106,27 @@
         "update": "Update",
         "delete": "Delete",
         "next": "next >",
-        "previous": "< previous"
+        "previous": "< previous",
+        "manageQuiz": "Manage Quiz",
+        "addNewQuiz": "Add new Quiz",
+        "name": "Name",
+        "description": "Description",
+        "uploadImage": "Upload image",
+        "save": "Save",
+        "updateQA": "Update Q/A Quizzes",
+        "assignToUsers": "Assign to Users",
+        "selectQuiz": "Select Quiz:",
+        "addQuestions": "Add questions:",
+        "questionDescription": "Question's description",
+        "answers": "Answers",
+        "submitQuestions": "Submit Questions",
+        "fileUploaded": "file is uploaded",
+        "noData": "No data",
+        "pleaseChooseQuiz": "Please choose a Quiz",
+        "notEmptyAnswer": "Not empty Answer",
+        "atQuestion": "at Question",
+        "notEmptyDescription": "Not empty description for Question",
+        "password": "Password"
     },
     "user": {
         "profile": "Profile",
@@ -131,7 +157,8 @@
         "warning": "Warning",
         "info": "Info",
         "required": "Required",
-        "optional": "Optional"
+        "optional": "Optional",
+        "showAnswers": "Show answers"
     },
     "messages": {
         "loginSuccess": "Login successful",

@@ -4,9 +4,11 @@ import Modal from "react-bootstrap/Modal";
 import { FcPlus } from "react-icons/fc";
 import { toast, Toast } from "react-toastify";
 import { postCreateNewUser } from "../../../services/apiService";
+import { useTranslation } from "react-i18next";
 
 const ModalCreateUser = (props) => {
     const { show, setShow } = props;
+    const { t } = useTranslation();
 
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
@@ -57,11 +59,11 @@ const ModalCreateUser = (props) => {
 
         const emailValid = validateEmail(Email);
         if (!emailValid) {
-            toast.error("Invalid email");
+            toast.error(t("auth.validation.invalidEmail"));
             return;
         }
         if (!Password) {
-            toast.error("Invalid password");
+            toast.error(t("auth.validation.invalidPassword"));
             return;
         }
 
@@ -100,13 +102,15 @@ const ModalCreateUser = (props) => {
                 className="modal-add-user"
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Add new user</Modal.Title>
+                    <Modal.Title>{t("admin.addNewUsers")}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <form className="row g-3">
                         {/* email */}
                         <div className="col-md-6">
-                            <label className="form-label">Email</label>
+                            <label className="form-label">
+                                {t("admin.email")}
+                            </label>
                             <input
                                 type="email"
                                 className="form-control"
@@ -116,7 +120,9 @@ const ModalCreateUser = (props) => {
                         </div>
                         {/* password */}
                         <div className="col-md-6">
-                            <label className="form-label">Password</label>
+                            <label className="form-label">
+                                {t("admin.password")}
+                            </label>
                             <input
                                 type="password"
                                 className="form-control"
@@ -126,7 +132,9 @@ const ModalCreateUser = (props) => {
                         </div>
                         {/* username */}
                         <div className="col-md-6">
-                            <label className="form-label">Username</label>
+                            <label className="form-label">
+                                {t("admin.username")}
+                            </label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -136,7 +144,9 @@ const ModalCreateUser = (props) => {
                         </div>
                         {/* role */}
                         <div className="col-md-4">
-                            <label className="form-label">Role</label>
+                            <label className="form-label">
+                                {t("admin.role")}
+                            </label>
                             <select
                                 className="form-select"
                                 onChange={(event) =>
@@ -155,7 +165,7 @@ const ModalCreateUser = (props) => {
                                 htmlFor="labelUpload"
                             >
                                 <FcPlus />
-                                Upload File image
+                                {t("admin.uploadImage")}
                             </label>
                             <input
                                 type="file"
@@ -169,20 +179,20 @@ const ModalCreateUser = (props) => {
                             {PreviewImage ? (
                                 <img src={PreviewImage} />
                             ) : (
-                                <span>preview image</span>
+                                <span>{t("admin.uploadImage")}</span>
                             )}
                         </div>
                     </form>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
-                        Close
+                        {t("common.close")}
                     </Button>
                     <Button
                         variant="primary"
                         onClick={() => handleSubmitCreateUser()}
                     >
-                        Save
+                        {t("common.save")}
                     </Button>
                 </Modal.Footer>
             </Modal>

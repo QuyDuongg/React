@@ -71,7 +71,13 @@
         "score": "スコア",
         "correctAnswers": "正解数",
         "totalQuestions": "総問題数",
-        "timeSpent": "所要時間"
+        "timeSpent": "所要時間",
+        "prev": "前へ",
+        "next": "次へ",
+        "finish": "完了",
+        "users": "ユーザー",
+        "home": "ホーム",
+        "somethingWrong": "APIでエラーが発生しました"
     },
     "admin": {
         "dashboard": "ダッシュボード",
@@ -100,7 +106,27 @@
         "update": "更新",
         "delete": "削除",
         "next": "次へ >",
-        "previous": "< 前へ"
+        "previous": "< 前へ",
+        "manageQuiz": "クイズ管理",
+        "addNewQuiz": "新しいクイズを追加",
+        "name": "名前",
+        "description": "説明",
+        "uploadImage": "画像をアップロード",
+        "save": "保存",
+        "updateQA": "Q/Aクイズを更新",
+        "assignToUsers": "ユーザーに割り当て",
+        "selectQuiz": "クイズを選択:",
+        "addQuestions": "問題を追加:",
+        "questionDescription": "問題の説明",
+        "answers": "回答",
+        "submitQuestions": "問題を提出",
+        "fileUploaded": "ファイルがアップロードされました",
+        "noData": "データなし",
+        "pleaseChooseQuiz": "クイズを選択してください",
+        "notEmptyAnswer": "回答を空にしないでください",
+        "atQuestion": "問題で",
+        "notEmptyDescription": "問題の説明を空にしないでください",
+        "password": "パスワード"
     },
     "user": {
         "profile": "プロフィール",
@@ -131,7 +157,8 @@
         "warning": "警告",
         "info": "情報",
         "required": "必須",
-        "optional": "任意"
+        "optional": "任意",
+        "showAnswers": "回答を表示"
     },
     "messages": {
         "loginSuccess": "ログインに成功しました",

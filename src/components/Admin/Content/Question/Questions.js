@@ -15,8 +15,10 @@ import {
     getAllQuizForAdmin,
 } from "../../../../services/apiService";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const Questions = (props) => {
+    const { t } = useTranslation();
     const initQuestions = [
         {
             id: uuidv4(),
@@ -166,7 +168,7 @@ const Questions = (props) => {
     const handleSubmitQuestionForQuiz = async () => {
         //todo
         if (_.isEmpty(selectedQuiz)) {
-            toast.error("Please choose a Quiz");
+            toast.error(t("admin.pleaseChooseQuiz"));
             return;
         }
         // validate data
@@ -189,7 +191,9 @@ const Questions = (props) => {
         }
         if (isValidAnswer === false) {
             toast.error(
-                `Not empty Answer ${indexA + 1} at Question ${indexQ + 1}`
+                `${t("admin.notEmptyAnswer")} ${indexA + 1} ${t(
+                    "admin.atQuestion"
+                )} ${indexQ + 1}`
             );
             return;
         }
@@ -204,7 +208,7 @@ const Questions = (props) => {
             }
         }
         if (isValidQ === false) {
-            toast.error(`Not empty description for Question ${indexQ + 1}`);
+            toast.error(`${t("admin.notEmptyDescription")} ${indexQ + 1}`);
             return;
         }
 
@@ -230,18 +234,18 @@ const Questions = (props) => {
 
     return (
         <div className="questions-container">
-            <div className="title">Manage Questions</div>
+            <div className="title">{t("admin.manageQuestions")}</div>
             <hr />
             <div className="add-new-question">
                 <div className="col-6 form-group">
-                    <label className="mb-2">Select Quiz:</label>
+                    <label className="mb-2">{t("admin.selectQuiz")}</label>
                     <Select
                         defaultValue={selectedQuiz}
                         onChange={setSelectedQuiz}
                         options={listQuiz}
                     />
                 </div>
-                <div className="mt-3 mb-2 ">Add questions:</div>
+                <div className="mt-3 mb-2 ">{t("admin.addQuestions")}</div>
                 {questions &&
                     questions.length > 0 &&
                     questions.map((question, index) => {
@@ -263,7 +267,8 @@ const Questions = (props) => {
                                             }
                                         />
                                         <label>
-                                            Question {index + 1} 's description
+                                            {t("admin.questionDescription")}{" "}
+                                            {index + 1}
                                         </label>
                                     </div>
                                     <div className="group-upload">
@@ -296,7 +301,7 @@ const Questions = (props) => {
                                                     {question.imageName}
                                                 </span>
                                             ) : (
-                                                "0 file is uploaded"
+                                                `0 ${t("admin.fileUploaded")}`
                                             )}
                                         </span>
                                     </div>
@@ -370,7 +375,8 @@ const Questions = (props) => {
                                                         }
                                                     />
                                                     <label>
-                                                        Answers {index + 1}{" "}
+                                                        {t("admin.answers")}{" "}
+                                                        {index + 1}{" "}
                                                     </label>
                                                 </div>
                                                 <div className="btn-group">
@@ -411,7 +417,7 @@ const Questions = (props) => {
                             className="btn btn-warning"
                             onClick={() => handleSubmitQuestionForQuiz()}
                         >
-                            Submit Questions
+                            {t("admin.submitQuestions")}
                         </button>
                     </div>
                 )}

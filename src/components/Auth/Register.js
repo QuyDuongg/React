@@ -30,11 +30,11 @@ const Register = () => {
         // validate
         const emailValid = validateEmail(email);
         if (!emailValid) {
-            toast.error("Invalid email");
+            toast.error(t("auth.validation.invalidEmail"));
             return;
         }
         if (!password) {
-            toast.error("Invalid password");
+            toast.error(t("auth.validation.invalidPassword"));
             return;
         }
         //call api
@@ -71,7 +71,7 @@ const Register = () => {
                 </div>
                 <Language></Language>
             </div>
-            <div className="title col-4 mx-auto">Hoidan IT</div>
+            <div className="title col-4 mx-auto">{t("auth.login.title")}</div>
             <div className="welcome col-4 mx-auto">
                 {t("auth.register.welcome")}
             </div>
