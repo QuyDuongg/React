@@ -400,7 +400,7 @@ const QuizQA = (props) => {
                                                 <input
                                                     className="form-check-input"
                                                     type="checkbox"
-                                                    // checked={answer.isCorrect}
+                                                    checked={answer.isCorrect}
                                                     onChange={(event) =>
                                                         handleAnswerQuestion(
                                                             "CHECKBOX",
