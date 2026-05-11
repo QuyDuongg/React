@@ -17,7 +17,7 @@ import ModalViewUser from "./ModalViewUser";
 const Header = () => {
     const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
     const account = useSelector((state) => state.user.account);
-    const [show, setShow] = useState("false");
+    const [show, setShow] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const handleLogin = () => {
@@ -40,7 +40,7 @@ const Header = () => {
     };
     const { t, i18n } = useTranslation();
     const handleShowProfile = () => {
-        setShow("true");
+        setShow(true);
     };
 
     return (

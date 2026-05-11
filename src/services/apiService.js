@@ -17,10 +17,11 @@ const getAllUsers = async () => {
 };
 const putUpdateUser = async (data) => {
     const form = new FormData();
-    form.append("id", data.Id);
-    form.append("username", data.Username);
-    form.append("role", data.Role);
-    form.append("userImage", data.Image);
+    if (data.Id) form.append("id", data.Id);
+    if (data.Username !== undefined) form.append("username", data.Username);
+    if (data.Role !== undefined) form.append("role", data.Role);
+    if (data.Image) form.append("userImage", data.Image);
+    if (data.Password) form.append("password", data.Password);
     return await axios.put("/api/v1/participant", form);
 };
 
@@ -29,7 +30,7 @@ const deleteUser = async (userid) => {
 };
 const getUserWithPaginate = async (page, limit) => {
     return await axios.get(
-        `http://localhost:8081/api/v1/participant?page=${page}&limit=${limit}`
+        `http://localhost:8081/api/v1/participant?page=${page}&limit=${limit}`,
     );
 };
 const postLogin = async (userEmail, userPassword) => {
@@ -104,7 +105,7 @@ const postCreateNewQuestionForQuiz = (quiz_id, description, image) => {
 const postCreateNewAnswerForQuestion = (
     description,
     correct_answer,
-    question_id
+    question_id,
 ) => {
     return axios.post("api/v1/answer", {
         description,
